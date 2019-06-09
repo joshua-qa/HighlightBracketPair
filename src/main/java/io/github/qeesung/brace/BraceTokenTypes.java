@@ -17,6 +17,8 @@ public class BraceTokenTypes {
     public final static String JAVA_STRING_TOKEN = "STRING_LITERAL";
     public final static String SCALA_STRING_TOKEN = "string content";
     public final static String HASKELL_STRING_TOKEN = "HaskellTokenType.STRING_LITERAL";
+    public final static String PHP_SINGLE_QUOTE_STRING_TOKEN = "single quoted string";
+    public final static String PHP_DOUBLE_QUOTE_STRING_TOKEN = "double quoted string";
 
     static {
         ElementType2Text.put(DOUBLE_QUOTE, "\"");

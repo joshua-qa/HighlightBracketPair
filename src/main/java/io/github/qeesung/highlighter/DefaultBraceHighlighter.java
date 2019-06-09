@@ -6,6 +6,8 @@ import com.intellij.lang.LanguageBraceMatching;
 import com.intellij.lang.PairedBraceMatcher;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.psi.tree.IElementType;
+import com.jetbrains.php.lang.PhpLanguage;
+import com.jetbrains.php.lang.lexer.PhpTokenTypes;
 import io.github.qeesung.util.Pair;
 
 import java.util.*;
@@ -45,6 +47,33 @@ public class DefaultBraceHighlighter extends BraceHighlighter {
                 LanguageBracePairs.put(language, braceList);
             }
         }
+        addPhpBracePairs();
+    }
+
+    private static void addPhpBracePairs() {
+        List<Pair<IElementType, IElementType>> braceList
+                = new LinkedList<>();
+
+        Pair<IElementType, IElementType> braceEntry =
+                new Pair<>(
+                        PhpTokenTypes.chLBRACE,
+                        PhpTokenTypes.chRBRACE
+                );
+        braceList.add(braceEntry);
+        Pair<IElementType, IElementType> parenEntry =
+                new Pair<>(
+                        PhpTokenTypes.chLPAREN,
+                        PhpTokenTypes.chRPAREN
+                );
+        braceList.add(parenEntry);
+        Pair<IElementType, IElementType> bracketEntry =
+                new Pair<>(
+                        PhpTokenTypes.chLBRACKET,
+                        PhpTokenTypes.chRBRACKET
+                );
+        braceList.add(bracketEntry);
+
+        LanguageBracePairs.put(PhpLanguage.INSTANCE, braceList);
     }
 
     /**
