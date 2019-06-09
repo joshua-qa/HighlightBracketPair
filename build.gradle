@@ -9,9 +9,10 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.intellij' version '0.2.18'
+    id "org.jetbrains.intellij" version "0.4.9"
 }
 
+apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: "org.jetbrains.intellij"
 
@@ -34,6 +35,8 @@ intellij {
     pluginName name
     version ideaVersion
     updateSinceUntilBuild = false
+    
+    plugins 'com.jetbrains.php:191.6183.95'
 }
 
 publishPlugin {
